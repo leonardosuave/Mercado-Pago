@@ -45,7 +45,6 @@ class Pay {
         //Banco.SalvarPagamento({codigo: id, pagador: emailDoPagador})
 
         const result = await MercadoPago.preferences.create(dados)
-        console.log(result)
         return result
     }
 }

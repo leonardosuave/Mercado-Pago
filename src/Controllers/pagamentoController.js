@@ -4,7 +4,6 @@ exports.index = async (req, res) => {
 
     try {
         const pagamento = await PayModel.Shop()
-        console.log(pagamento.status)
 
         if(pagamento.status != 201) return res.send('Erro...')
         return res.redirect(pagamento.body.init_point) //Redireciona para url de checkout
@@ -13,4 +12,9 @@ exports.index = async (req, res) => {
         console.log(err)
         return res.send(err.message)
     }
+}
+
+exports.notification = (req, res) => {
+    console.log(req.query)
+    res.send('OK')
 }
