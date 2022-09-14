@@ -5,7 +5,8 @@ const routes = require('./src/Routes/Routes')
 
 app.use(routes)
 
-app.listen(3033, () => {
-    console.log('Servidor working...')
-    console.log('http://localhost:3033')
+//Use gate 80 because deploy aplication on web
+//Change to another gate to test in localhost
+app.listen(80, () => {
+    console.log('Server working...')
 })
