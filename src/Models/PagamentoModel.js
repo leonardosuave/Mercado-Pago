@@ -36,8 +36,8 @@ class Pay {
                 email: emailDoPagador
             },
 
-            //Campo de consulta quando o MP enviar pagamento concluido
-            //Deve ter o mesmo conteúdo do id do item
+            //Campo de consulta quando o MP enviar notificação de pagamento
+            //Deve ter o mesmo conteúdo do id do item para posteriormente buscar no banco de dados e alterar o status de pagamento.
             external_reference: id, 
         }
 
@@ -61,10 +61,30 @@ class Pay {
             //qs é o campo que recebe o filtro
             qs: filtro
         }).then(data => {
-            
+
             const pagamento = data.body.results[0]
             if(pagamento != undefined) {
-                console.log(pagamento)
+                //Vai printa no console da aplicação varios dados que podem ser utilizados
+                //console.log(pagamento)
+
+                /*
+                Aqui os 2 dados mais importante (pagamento.status e pagamento.external_reference) que retornará o status de pagamento e o id da compra
+                */
+
+                console.log(pagamento.status)
+                console.log(pagamento.external_reference)
+
+                /*
+                Caso pagamento.status == aproved então fará uma busca no banco de dados através do id da compra (código no banco de dados) pelo campo pagamento.external_reference e vai setar o status como PAGO.
+
+                EX.
+                if(pagamento.status == aproved) {
+                    (Mongo)
+                    Banco.findById(pagamento.external_reference, status: pagamento.status)
+                }
+
+                */
+
             }else {
                 console.log('Pagamento não existe.')
             }
