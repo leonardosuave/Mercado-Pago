@@ -15,6 +15,8 @@ exports.index = async (req, res) => {
 }
 
 exports.notification = (req, res) => {
+    console.log(req.query)
+    console.log('termina aqui')
     const id = req.query.id
 
     setTimeout(() => {
