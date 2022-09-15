@@ -47,6 +47,21 @@ class Pay {
         const result = await MercadoPago.preferences.create(dados)
         return result
     }
+    
+    Notification(id) {
+        const filtro = {
+            'order.id': id
+        }
+
+        MercadoPago.payment.search({
+            qs: filtro
+        }).then(data => {
+            console.log(data)      
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
 }
 
 module.exports = new Pay()

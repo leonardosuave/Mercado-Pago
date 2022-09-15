@@ -15,6 +15,12 @@ exports.index = async (req, res) => {
 }
 
 exports.notification = (req, res) => {
-    console.log(req.query)
+    const id = req.query.id
+
+    setTimeout(() => {
+        PayModel.Notification(id)
+        
+    }, 20000)
+
     res.send('OK')
 }
