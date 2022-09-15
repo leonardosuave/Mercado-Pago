@@ -49,13 +49,26 @@ class Pay {
     }
     
     Notification(id) {
+        //Documentação buscar por busca de pagamento para ver as possibilidades de dados que podem ser utilizado para filtrar a busca de pagamento
+
+        //Busca sem filtro retorna todos os pagamentos efetuados e cancelados na conta
         const filtro = {
+            //Filtragem do pagamento por id, obtido no req.query do link de pagamento
             'order.id': id
         }
 
         MercadoPago.payment.search({
+            //qs é o campo que recebe o filtro
             qs: filtro
         }).then(data => {
+            
+            const pagamento = data.body.results[0]
+            if(pagamento != undefined) {
+                console.log(pagamento)
+            }else {
+                console.log('Pagamento não existe.')
+            }
+
             console.log(data)      
         }).catch(err => {
             console.log(err)

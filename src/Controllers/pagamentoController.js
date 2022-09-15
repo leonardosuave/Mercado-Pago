@@ -15,10 +15,10 @@ exports.index = async (req, res) => {
 }
 
 exports.notification = (req, res) => {
-    console.log(req.query)
-    console.log('termina aqui')
     const id = req.query.id
 
+    //Necessário porque a notificação e feita mais rápida do que o cadastro de status como pago no banco de dados e então não teremos o retorno da notificação de pagamento.
+    //Portanto fazer a busca da notificação após um tempo.
     setTimeout(() => {
         PayModel.Notification(id)
         
