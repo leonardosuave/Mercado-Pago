@@ -1,0 +1,10 @@
+Public Key
+TEST-a5fe7d00-74ff-47ca-8d04-2af2de240c75
+
+Access Token
+TEST-4721771703735817-091315-60deb4633928ddca44934b5cbabb2e1e-104451160
+
+
+senha digital ocean deploy - p@Lmeir4s
+
+Deploy Heroku - https://mercado-pago-deploy.herokuapp.com/
